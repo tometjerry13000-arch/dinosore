@@ -432,6 +432,11 @@
             background: linear-gradient(135deg, rgba(0, 255, 0, 0.1), rgba(0, 0, 0, 0.3));
         }
         
+        .avatar-card {
+            border: 2px solid #00ffff;
+            background: linear-gradient(135deg, rgba(0, 255, 255, 0.1), rgba(0, 0, 255, 0.1));
+        }
+        
         .generate-btn {
             background: linear-gradient(135deg, #00f3ff, #f0f);
             border: none;
@@ -1072,31 +1077,12 @@
                     </div>
                 </div>
 
-                <!-- SECTION MUSIQUE -->
-                <div class="card">
-                    <div class="card-header">
-                        <i class="fas fa-music"></i>
-                        <h3>MUSIQUE</h3>
-                    </div>
-                    <div class="card-body">
-                        <select id="musicStyle" class="full-width">
-                            <option value="traditionnelle">🎵 Traditionnelle</option>
-                            <option value="moderne">🎧 Moderne / Remix</option>
-                            <option value="epique">🎬 Épique</option>
-                            <option value="silence">🤫 Silence</option>
-                        </select>
-                        <label class="checkbox-label" style="margin-top: 10px;">
-                            <input type="checkbox" id="soundEffects"> Effets sonores (baisers, claquements)
-                        </label>
-                    </div>
-                </div>
-
-                <!-- SECTION MODE ALIEN -->
+                <!-- SECTION MODE ALIEN (OPTIONS INDIVIDUELLES) -->
                 <div class="card alien-card">
                     <div class="card-header">
                         <i class="fas fa-robot"></i>
                         <h3>MODE ALIEN</h3>
-                        <span class="badge">EXPÉRIMENTAL</span>
+                        <span class="badge">CHOIX INDIVIDUELS</span>
                     </div>
                     <div class="card-body">
                         <div class="toggle-container">
@@ -1120,90 +1106,119 @@
                                 <label class="checkbox-label"><input type="checkbox" id="alienTeleportation"> Téléportation</label>
                             </div>
                             
-                            <div class="input-group">
-                                <label>Couleur peau</label>
-                                <select id="alienSkinColor" class="full-width">
-                                    <option value="argent">Argent métallique</option>
-                                    <option value="or">Or cosmique</option>
-                                    <option value="bleu">Bleu holographique</option>
-                                    <option value="violet">Violet galactique</option>
-                                    <option value="rose">Rose nébuleuse</option>
-                                    <option value="cyan">Cyan extraterrestre</option>
-                                </select>
+                            <!-- Options conditionnelles qui apparaissent seulement si la case correspondante est cochée -->
+                            <div id="alienSkinOptions" style="margin-top: 10px; display: none;">
+                                <div class="input-group">
+                                    <label>Couleur peau</label>
+                                    <select id="alienSkinColor" class="full-width">
+                                        <option value="argent">Argent métallique</option>
+                                        <option value="or">Or cosmique</option>
+                                        <option value="bleu">Bleu holographique</option>
+                                        <option value="violet">Violet galactique</option>
+                                        <option value="rose">Rose nébuleuse</option>
+                                        <option value="cyan">Cyan extraterrestre</option>
+                                    </select>
+                                </div>
                             </div>
                             
-                            <div class="input-group">
-                                <label>Couleur yeux</label>
-                                <select id="alienEyesColor" class="full-width">
-                                    <option value="rouge">Rouge</option>
-                                    <option value="bleu">Bleu électrique</option>
-                                    <option value="vert">Vert</option>
-                                    <option value="violet">Violet</option>
-                                    <option value="jaune">Jaune</option>
-                                </select>
+                            <div id="alienEyesOptions" style="margin-top: 10px; display: none;">
+                                <div class="input-group">
+                                    <label>Couleur yeux</label>
+                                    <select id="alienEyesColor" class="full-width">
+                                        <option value="rouge">Rouge</option>
+                                        <option value="bleu">Bleu électrique</option>
+                                        <option value="vert">Vert</option>
+                                        <option value="violet">Violet</option>
+                                        <option value="jaune">Jaune</option>
+                                    </select>
+                                </div>
                             </div>
                             
-                            <div class="input-group">
-                                <label>Style antennes</label>
-                                <select id="antennaStyle" class="full-width">
-                                    <option value="antennes">Antennes fines</option>
-                                    <option value="cornes">Cornes stylisées</option>
-                                    <option value="couronne">Couronne lumineuse</option>
-                                    <option value="halo">Halo de lumière</option>
-                                </select>
+                            <div id="alienAntennaOptions" style="margin-top: 10px; display: none;">
+                                <div class="input-group">
+                                    <label>Style antennes</label>
+                                    <select id="antennaStyle" class="full-width">
+                                        <option value="antennes">Antennes fines</option>
+                                        <option value="cornes">Cornes stylisées</option>
+                                        <option value="couronne">Couronne lumineuse</option>
+                                        <option value="halo">Halo de lumière</option>
+                                    </select>
+                                </div>
                             </div>
                             
-                            <div class="input-group">
-                                <label>Couleur lueur</label>
-                                <select id="glowColor" class="full-width">
-                                    <option value="bleu">Bleu</option>
-                                    <option value="vert">Vert</option>
-                                    <option value="rose">Rose</option>
-                                    <option value="violet">Violet</option>
-                                    <option value="or">Or</option>
-                                </select>
+                            <div id="alienGlowOptions" style="margin-top: 10px; display: none;">
+                                <div class="input-group">
+                                    <label>Couleur lueur</label>
+                                    <select id="glowColor" class="full-width">
+                                        <option value="bleu">Bleu</option>
+                                        <option value="vert">Vert</option>
+                                        <option value="rose">Rose</option>
+                                        <option value="violet">Violet</option>
+                                        <option value="or">Or</option>
+                                    </select>
+                                </div>
                             </div>
                             
-                            <div class="input-group">
-                                <label>Style tatouages</label>
-                                <select id="tattooStyle" class="full-width">
-                                    <option value="symboles">Symboles aliens</option>
-                                    <option value="runes">Runes anciennes</option>
-                                    <option value="galaxie">Motifs galactiques</option>
-                                    <option value="circuits">Circuits imprimés</option>
-                                </select>
+                            <div id="alienTattoosOptions" style="margin-top: 10px; display: none;">
+                                <div class="input-group">
+                                    <label>Style tatouages</label>
+                                    <select id="tattooStyle" class="full-width">
+                                        <option value="symboles">Symboles aliens</option>
+                                        <option value="runes">Runes anciennes</option>
+                                        <option value="galaxie">Motifs galactiques</option>
+                                        <option value="circuits">Circuits imprimés</option>
+                                    </select>
+                                </div>
                             </div>
                             
-                            <div class="input-group">
-                                <label>Hologrammes</label>
-                                <select id="hologramType" class="full-width">
-                                    <option value="etoiles">Étoiles filantes</option>
-                                    <option value="planetes">Planètes miniatures</option>
-                                    <option value="symboles">Symboles mystiques</option>
-                                    <option value="energie">Sphères d'énergie</option>
-                                </select>
+                            <div id="alienHologramsOptions" style="margin-top: 10px; display: none;">
+                                <div class="input-group">
+                                    <label>Hologrammes</label>
+                                    <select id="hologramType" class="full-width">
+                                        <option value="etoiles">Étoiles filantes</option>
+                                        <option value="planetes">Planètes miniatures</option>
+                                        <option value="symboles">Symboles mystiques</option>
+                                        <option value="energie">Sphères d'énergie</option>
+                                    </select>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- SECTION MODE AVATAR -->
-                <div class="card">
+                <!-- SECTION MODE AVATAR (CHOIX CONSERVER VISAGE OU PEAU BLEUE) -->
+                <div class="card avatar-card">
                     <div class="card-header">
                         <i class="fas fa-leaf"></i>
                         <h3>MODE AVATAR</h3>
+                        <span class="badge">NA'VI</span>
                     </div>
                     <div class="card-body">
-                        <div class="checkbox-grid">
-                            <label class="checkbox-label"><input type="checkbox" id="avatarSkin"> Peau bleue Na'vi</label>
-                            <label class="checkbox-label"><input type="checkbox" id="avatarEars"> Oreilles pointues</label>
-                            <label class="checkbox-label"><input type="checkbox" id="avatarTail"> Queue</label>
-                            <label class="checkbox-label"><input type="checkbox" id="avatarStripes"> Rayures lumineuses</label>
+                        <div class="toggle-container">
+                            <label class="switch">
+                                <input type="checkbox" id="enableAvatarMode">
+                                <span class="slider"></span>
+                            </label>
+                            <span class="switch-label">Activer mode Avatar (Na'vi)</span>
+                        </div>
+                        
+                        <div id="avatarOptions" style="margin-top: 15px; display: none;">
+                            <div class="checkbox-grid">
+                                <label class="checkbox-label"><input type="checkbox" id="avatarFullBody" checked> Corps Na'vi complet (peau bleue)</label>
+                                <label class="checkbox-label"><input type="checkbox" id="avatarKeepFace"> Conserver le visage humain</label>
+                                <label class="checkbox-label"><input type="checkbox" id="avatarEars"> Oreilles pointues</label>
+                                <label class="checkbox-label"><input type="checkbox" id="avatarTail"> Queue</label>
+                                <label class="checkbox-label"><input type="checkbox" id="avatarStripes"> Rayures lumineuses</label>
+                            </div>
+                            <div class="info-note" style="margin-top: 10px;">
+                                <i class="fas fa-info-circle"></i> 
+                                <small>Si "Conserver le visage humain" est coché, le visage reste identique à l'image de référence, seul le corps devient Na'vi.</small>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- SECTION DÉCOR UNIQUE -->
+                <!-- SECTION DÉCOR UNIQUE (CORRIGÉ - PLUS DE DOUBLONS) -->
                 <div class="card" style="border: 3px solid #00ffff; background: linear-gradient(135deg, rgba(0,255,255,0.15), rgba(0,0,139,0.15));">
                     <div class="card-header">
                         <i class="fas fa-map"></i>
@@ -1240,9 +1255,39 @@
                             </div>
                         </div>
                         
+                        <!-- Info sur le décor automatique -->
                         <div class="info-note" style="margin-top: 15px; background: rgba(255,255,255,0.1);">
                             <i class="fas fa-info-circle"></i> 
                             <strong>Mode automatique :</strong> Si non activé, le décor sera choisi automatiquement selon ton personnage (décors variés et adaptés).
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SECTION SCRIPT DU PERSONNAGE (REMPLACE MUSIQUE) -->
+                <div class="card">
+                    <div class="card-header">
+                        <i class="fas fa-comment"></i>
+                        <h3>SCRIPT DU PERSONNAGE</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="toggle-container">
+                            <label class="switch">
+                                <input type="checkbox" id="enableScript">
+                                <span class="slider"></span>
+                            </label>
+                            <span class="switch-label">Activer dialogue</span>
+                        </div>
+                        
+                        <div id="scriptOptions" style="margin-top: 15px; display: none;">
+                            <div class="input-group">
+                                <label>📝 TEXTE À DIRE</label>
+                                <textarea id="scriptText" rows="3" placeholder="Ex: Bienvenue dans ma danse !" class="full-width"></textarea>
+                            </div>
+                            <div class="checkbox-grid">
+                                <label class="checkbox-label"><input type="checkbox" id="scriptPart1"> Dire en partie 1</label>
+                                <label class="checkbox-label"><input type="checkbox" id="scriptPart2" checked> Dire en partie 2</label>
+                                <label class="checkbox-label"><input type="checkbox" id="scriptFinal"> Dire à la fin</label>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1303,6 +1348,7 @@
                             <li><i class="fas fa-check-circle"></i> Générez le prompt</li>
                             <li><i class="fas fa-check-circle"></i> Copiez dans Grok</li>
                             <li><i class="fas fa-check-circle" style="color: #ffd700;"></i> Transition naturelle - Changement HORS CAMÉRA</li>
+                            <li><i class="fas fa-check-circle" style="color: #00ffff;"></i> Visage 8K - Pores, cils, vaisseaux sanguins</li>
                         </ul>
                     </div>
                 </div>
@@ -1310,11 +1356,11 @@
         </div>
 
         <footer>
-            <p>© 2024 - PROMPT DANCE STUDIO v6.0 ULTIME - 55 personnages - Tous les effets</p>
+            <p>© 2024 - PROMPT DANCE STUDIO v6.0 ULTIME - 55 personnages - Tous les effets - Visage 8K</p>
         </footer>
     </div>
 
-    <!-- CHARGEMENT DES SCRIPTS - ORDRE CORRIGÉ -->
+    <!-- CHARGEMENT DES SCRIPTS - ORDRE CORRECT -->
     <script src="data/countries.js"></script>
     <script src="data/actions.js"></script>
     <script src="data/danceMoves.js"></script>
